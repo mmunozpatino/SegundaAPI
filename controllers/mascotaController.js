@@ -60,3 +60,22 @@ exports.deletePet = function(req, res){
       })
    })
 }
+
+function agregarMAscota (req){
+   var mascota = new Mascota({
+      nombre: req.body.nombre,
+      raza: req.body.raza,
+      especie: req.body.especie
+   })
+   console.log(mascota);
+   /*
+   mascota.save(function(err){
+      if(err){
+         console.log('error guardando nueva mascota');
+      }else{
+         console.log(mascota);
+         return mascota;
+      }
+   })
+   */
+}

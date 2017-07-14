@@ -23,6 +23,14 @@ app.route('/mascota')
 app.route('/mascota/:id')
    .delete(mascotaCtrl.deletePet)
    .put(mascotaCtrl.editPet);
+
+var personaCtrl = require ('./controllers/personaController.js');
+
+app.route('/persona')
+   .post(personaCtrl.add);
+
+app.route('/persona/:id')
+   .post(personaCtrl.setPet);
 //conexion a MongoDB
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/redsocial', { useMongoClient : true }, function(err){
