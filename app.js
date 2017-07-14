@@ -13,6 +13,16 @@ app.get('/',function(req, res){
    res.send('Personas que tienen amigos y mascotas!');
 });
 
+//API REST
+var mascotaCtrl = require('./controllers/mascotaController');
+
+app.route('/mascota')
+   .get(mascotaCtrl.getAll)
+   .post(mascotaCtrl.add);
+
+app.route('/mascota/:id')
+   .delete(mascotaCtrl.deletePet)
+   .put(mascotaCtrl.editPet);
 //conexion a MongoDB
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/redsocial', { useMongoClient : true }, function(err){
