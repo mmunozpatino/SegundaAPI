@@ -69,3 +69,30 @@ exports.getById = function(req, res){
       }
    })
 }
+
+exports.update = function(req, res){
+   Persona.findById(req.params.id, function(err, persona){
+      if(err){
+         console.log('error al actualizar persona');
+         res.status(500, err.message);
+      }else{
+         persona.nombre = req.body.nombre;
+         persona.apellido = req.body.apellido;
+         persona.dni = req.body.dni;
+         persona.save(function(err){
+            if(err){
+               console.log('error guardando persona actualizada', err);
+               res.status(500, err.message);
+            }else{
+               //res.status(200).jsonp(persona);
+            }
+         })
+      }
+   }).populate('mascota').exec(function(err, persona){
+      if(err){
+         console.log('ERROR')
+      }else{
+         res.status(200).jsonp(persona);
+      }
+   })
+}

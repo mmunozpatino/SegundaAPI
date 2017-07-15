@@ -33,6 +33,7 @@ app.route('/persona')
 
 app.route('/persona/:id')
    .get(personaCtrl.getById)
+   .put(personaCtrl.update)
    .post(personaCtrl.setPet);
 //conexion a MongoDB
 mongoose.Promise = global.Promise;
