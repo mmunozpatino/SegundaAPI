@@ -114,3 +114,28 @@ exports.addFriend = function(req, res){
       }
    })
 }
+
+exports.delete = function(req, res){
+   Persona.findById(req.body.id, function(err, persona){
+      if(err){
+         console.log(err);
+      }else{
+         if( persona.mascota != null){
+            Mascota.findById(persona.mascota, function(err, mascota){
+               mascota.remove(function(err){
+                  if(err){
+                     console.log(err);
+                  }
+               })
+            });
+         }
+         persona.remove(function(err){
+            if(err){
+               console.log(err);
+            }else{
+               res.status(200).jsonp({message: 'persona borrada'});
+            }
+         })
+      }
+   })
+}

@@ -30,7 +30,8 @@ var personaCtrl = require ('./controllers/personaController.js');
 app.route('/persona')
    .get(personaCtrl.getAll)
    .post(personaCtrl.add)
-   .put(personaCtrl.addFriend);
+   .put(personaCtrl.addFriend)
+   .delete(personaCtrl.delete);
 
 app.route('/persona/:id')
    .get(personaCtrl.getById)
