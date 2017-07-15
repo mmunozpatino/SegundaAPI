@@ -21,15 +21,18 @@ app.route('/mascota')
    .post(mascotaCtrl.add);
 
 app.route('/mascota/:id')
+   .get(mascotaCtrl.getById)
    .delete(mascotaCtrl.deletePet)
    .put(mascotaCtrl.editPet);
 
 var personaCtrl = require ('./controllers/personaController.js');
 
 app.route('/persona')
+   .get(personaCtrl.getAll)
    .post(personaCtrl.add);
 
 app.route('/persona/:id')
+   .get(personaCtrl.getById)
    .post(personaCtrl.setPet);
 //conexion a MongoDB
 mongoose.Promise = global.Promise;

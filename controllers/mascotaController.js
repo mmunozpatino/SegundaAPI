@@ -27,6 +27,17 @@ exports.getAll = function(req, res){
    })
 }
 
+exports.getById = function(req, res){
+   Mascota.findById(req.params.id, function(err, mascota){
+      if(err){
+         console.log('error recuperando mascota por id');
+         res.status(500, err.message);
+      }else{
+         res.status(200).jsonp(mascota);
+      }
+   })
+}
+
 exports.editPet = function(req, res){
    Mascota.findById(req.params.id, function(err, mascota){
       if(err){
@@ -59,23 +70,4 @@ exports.deletePet = function(req, res){
          }
       })
    })
-}
-
-function agregarMAscota (req){
-   var mascota = new Mascota({
-      nombre: req.body.nombre,
-      raza: req.body.raza,
-      especie: req.body.especie
-   })
-   console.log(mascota);
-   /*
-   mascota.save(function(err){
-      if(err){
-         console.log('error guardando nueva mascota');
-      }else{
-         console.log(mascota);
-         return mascota;
-      }
-   })
-   */
 }
