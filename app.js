@@ -37,6 +37,14 @@ app.route('/persona/:id')
    .get(personaCtrl.getById)
    .put(personaCtrl.update)
    .post(personaCtrl.setPet);
+
+var userCtrl = require('./controllers/userController');
+
+app.route('/user')
+   .put(userCtrl.updateUser)
+   .delete(userCtrl.deleteUser)
+   .post(userCtrl.createUser);
+
 //conexion a MongoDB
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/redsocial', { useMongoClient : true }, function(err){
