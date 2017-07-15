@@ -6,7 +6,7 @@ var personaSchema = new schema({
    apellido: { type:String, required: true},
    dni : Number,
    mascota : { type: schema.Types.ObjectId, ref:'mascota' },
-   amigos : [schema.Types.ObjectId]
+   amigos : [{type: schema.ObjectId, ref:'persona'}]  //ref se refiere a que modelo es 
 })
 
 module.exports = mongoose.model('persona', personaSchema);

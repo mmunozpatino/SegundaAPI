@@ -49,7 +49,7 @@ exports.setPet = function(req, res){
 }
 
 exports.getAll = function(req, res){
-   Persona.find().populate('mascota').exec(function(err, personas){
+   Persona.find().populate('mascota amigos').exec(function(err, personas){
       if(err){
          console.log('error al traer las personas');
          res.status(500, err.message);
@@ -60,9 +60,9 @@ exports.getAll = function(req, res){
 }
 
 exports.getById = function(req, res){
-   Persona.findById(req.params.id).populate('mascota').exec(function(err, persona){
+   Persona.findById(req.params.id).populate('mascota amigos').exec(function(err, persona){
       if(err){
-         console.log('error al traer persona');
+         console.log('error al traer persona', err);
          res.status(500, err.message);
       }else{
          res.status(200).jsonp(persona);
@@ -93,6 +93,24 @@ exports.update = function(req, res){
          console.log('ERROR')
       }else{
          res.status(200).jsonp(persona);
+      }
+   })
+}
+
+exports.addFriend = function(req, res){
+   Persona.findById(req.body.id, function(err, persona){
+      if(err){
+         console.log('ERROR');
+         res.send({message: err});
+      }else{
+         persona.amigos.push(req.body.idf);
+         persona.save(function(err){
+            if(err){
+               res.send({message: err});
+            }else{
+               res.status(200).jsonp(persona);
+            }
+         })
       }
    })
 }
