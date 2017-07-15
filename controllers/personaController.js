@@ -10,7 +10,7 @@ exports.add = function(req, res){
    persona.save(function(err){
       if(err){
          console.log('error al guardar a la persona');
-         res.status(500, err.message);
+         res.status(500).jsonp({message: 'error'});
       }else{
          res.status(200).jsonp(persona);
       }
@@ -31,13 +31,13 @@ exports.setPet = function(req, res){
          mascota.save(function(err){
             if(err){
                console.log('error guardando mascota en persona');
-               res.status(500, err.message);
+               res.status(500).jsonp({message: 'error'});
             }else{
                persona.mascota = mascota._id;
                persona.save(function(err){
                   if(err){
                      console.log('error guardando persona con mascota');
-                     res.status(500, err.message);
+                     res.status(500).jsonp({message: 'error'});
                   }else{
                      res.status(200).jsonp(persona);
                   }
@@ -52,7 +52,7 @@ exports.getAll = function(req, res){
    Persona.find().populate('mascota amigos').exec(function(err, personas){
       if(err){
          console.log('error al traer las personas');
-         res.status(500, err.message);
+         res.status(500).jsonp({message: 'error'});
       }else{
          res.status(200).jsonp(personas);
       }
@@ -63,7 +63,7 @@ exports.getById = function(req, res){
    Persona.findById(req.params.id).populate('mascota amigos').exec(function(err, persona){
       if(err){
          console.log('error al traer persona', err);
-         res.status(500, err.message);
+         res.status(500).jsonp({message: 'error'});
       }else{
          res.status(200).jsonp(persona);
       }
@@ -74,7 +74,7 @@ exports.update = function(req, res){
    Persona.findById(req.params.id, function(err, persona){
       if(err){
          console.log('error al actualizar persona');
-         res.status(500, err.message);
+         res.status(500).jsonp({message: 'error'});
       }else{
          persona.nombre = req.body.nombre;
          persona.apellido = req.body.apellido;
@@ -82,7 +82,7 @@ exports.update = function(req, res){
          persona.save(function(err){
             if(err){
                console.log('error guardando persona actualizada', err);
-               res.status(500, err.message);
+               res.status(500).jsonp({message: 'error'});
             }else{
                //res.status(200).jsonp(persona);
             }
