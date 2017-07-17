@@ -9,7 +9,7 @@ import { PerfilUserComponent } from './users/perfilUser.component';
 const routes: Routes = [
    { path: '', component: InicioComponent },
    { path: 'newUser', component: NewUserComponent },
-   { path: 'perfil', component: PerfilUserComponent}
+   { path: 'perfil/:id', component: PerfilUserComponent}
 ];
 
 @NgModule({
