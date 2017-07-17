@@ -1,6 +1,8 @@
 {
    "name": "nodejs-apirest2",
    "version": "1.0.0",
+   "scripts": { 
+      "star": "node app.js" },
    "dependencies": {
       "body-parser": "~1.13.2",
       "express": "~4.13.1",
