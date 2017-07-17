@@ -45,6 +45,8 @@ app.route('/user')
    .delete(userCtrl.deleteUser)
    .post(userCtrl.createUser);
 
+app.route('/user/:username')
+   .get(userCtrl.getByName);
 //conexion a MongoDB
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/redsocial', { useMongoClient : true }, function(err){

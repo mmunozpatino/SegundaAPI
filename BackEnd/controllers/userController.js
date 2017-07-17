@@ -61,3 +61,14 @@ exports.updateUser = function(req, res){
       })
    })
 }
+
+exports.getByName = function(req, res){
+   User.findOne({username: req.params.username}, function(err, user){
+      if(err){
+         console.log('error buscando por nombre de usuario');
+         res.status(500).jsonp({message: 'error'});
+      }else{
+         res.status(200).jsonp(user);
+      }
+   })
+}
