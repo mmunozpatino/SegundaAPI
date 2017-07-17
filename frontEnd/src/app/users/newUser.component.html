@@ -1,13 +1,74 @@
 <h1>new user</h1>
-<h3>Nombre</h3>
-<input type="text" [(ngModel)]='nombre'>
-<h3>Apellido</h3>
-<input type="text" [(ngModel)]='apellido'>
-<h3>dni</h3>
-<input type="text" [(ngModel)] = 'dni'>
-<h3>Nombre de usuario</h3>
-<input type="text" [(ngModel)]='username'>
-<h3>Contraseña</h3>
-<input type="password" [(ngModel)]='pass'>
+<form name='formulario' #usuarioForm='ngForm' (ngSubmit)='onSubmit()'>
+   <label for="nombre">Nombre</label>
+
+   <input type="text" id="nombre" 
+         required
+         name="nombre" pattern='[a-zA-Z]+' [(ngModel)]="user.nombre"
+         #nombre="ngModel" >
+
+   <div *ngIf="nombre.errors && (nombre.dirty || nombre.touched)">
+      <div [hidden]="!nombre.errors.required">
+         Debe ingresar el nombre!
+      </div>
+      <div [hidden]='!nombre.errors.pattern'>
+         Sin números!
+      </div>
+   </div>
+   <br>
+   <label for="apellido">Apellido</label>
+
+   <input type="text" required pattern='[a-zA-Z]+' name='apellido' [(ngModel)]='user.apellido' #apellido="ngModel">
+
+   <div *ngIf='apellido.errors && (apellido.dirty || apellido.touched)'>
+      <div [hidden]='!apellido.errors.required'>
+         Debe ingresar el apellido!
+      </div>
+      <div [hidden]='!apellido.errors.pattern'>
+         Sin números!
+      </div>
+   </div>
+   <br>
+   <label for="dni">Documento</label>
+
+   <input type='text' required name='dni' minlength='8'
+   maxlength='10' pattern='[0-9]+' [(ngModel)]='user.dni' #dni='ngModel' >
+
+   <div *ngIf='dni.errors && (dni.dirty || dni.touched)'>
+      <div [hidden]="!dni.errors.pattern">
+         Sólo números!
+      </div>
+      <div [hidden]='!dni.errors.minlength'>
+         Al menos 8 digítos!
+      </div>
+   </div>
+   <br>
+   <label for="username">Nombre de usuario</label>
+
+   <input type="text" name='username' required [(ngModel)]='user.username' #username='ngModel'>
+
+   <div *ngIf='username.errors && (username.dirty || username.touched)'>
+      <div [hidden]='!username.errors.required'>
+         Debe ingresar el nombre de usuario!
+      </div>
+   </div>
+
+   <label for="pass">Contraseña</label>
+
+   <input type="password" name='pass' required minlength="4" maxlength="12" [(ngModel)]='user.password' #pass='ngModel'>
+
+   <div *ngIf='pass.errors && (pass.dirty || pass.touched)'>
+      <div [hidden]='!pass.errors.required'>
+         Debe ingresar la contraseña!
+      </div>
+   </div>
+
+   <label for="pass2">Repita la contraseña</label>
+
+   <input type="password" #pass2>
+   <div *ngIf='pass2.value != pass.value'>
+      Deben coincidir!
+   </div>
+</form>
 <button (click)='logUp()'>Log Up!</button>
 <button routerLink='/'>Back!</button>

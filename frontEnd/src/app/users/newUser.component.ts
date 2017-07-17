@@ -13,18 +13,20 @@ export class NewUserComponent {
    username: String;
    pass: String;
    user: any;
-   constructor(private service: UserService){}
+
+   constructor(private service: UserService){
+      this.user = {
+         'nombre' : '',
+         'apellido': '',
+         'dni': '',
+         'username': '',
+         'password': ''
+      }
+   }
    
    logUp(){
-      let user ={
-         'nombre' : this.nombre,
-         'apellido': this.apellido,
-         'dni': this.dni,
-         'username': this.username,
-         'password': this.pass
-      }
-      console.log(user);
-      this.service.addUser(user).then(res => {this.user = res;
+      console.log(this.user);
+      this.service.addUser(this.user).then(res => {this.user = res;
                                              console.log(this.user);})
    }
 }
