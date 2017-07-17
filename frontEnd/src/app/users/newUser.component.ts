@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 
 import { UserService } from '../services/user.service'; 
 
+
 @Component({
    selector: 'new-user',
    templateUrl: './newUser.component.html'
@@ -27,12 +28,7 @@ export class NewUserComponent {
    
    logUp(){
       this.service.addUser(this.user).then(res => {this.user = res;
-                                          console.log(this.user)}).catch(this.handleError);
-   }
-   verificarRes(user: any){
-      if(user.message == 'error'){
-         this.error = true;
-      }
+                                          console.log                (this.user)}).catch(this.handleError);
    }
    handleError(){
       alert('Verificar los datos ingresados');
