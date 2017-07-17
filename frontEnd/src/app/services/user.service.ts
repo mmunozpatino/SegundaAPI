@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Http, RequestOptions, Headers} from '@angular/http'
 import 'rxjs/add/operator/toPromise';
-import {User} from '../classes/user.class';
 
 @Injectable()
 export class UserService {
@@ -9,10 +8,10 @@ export class UserService {
 
    constructor(private http: Http){}
 
-   get(): Promise<User[]> {
-      return this.http.get(this.url).toPromise().then(resp => resp.json().data as User[]);
+   get(): Promise<any[]>{
+      return this.http.get(this.url).toPromise().then(resp => resp.json());
    }
-   hola(){
-      console.log('hola')
+   getUser(usr: String): Promise<any[]>{
+      return this.http.get(this.url + '/' + usr).toPromise().then(resp => resp.json());
    }
 }

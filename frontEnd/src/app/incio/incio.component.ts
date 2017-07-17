@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 
 import {UserService} from '../services/user.service';
-import { User } from "app/classes/user.class";
 
 @Component({
    selector: 'inicio',
@@ -16,8 +15,19 @@ export class InicioComponent{
    
    constructor(private service: UserService){}
    logIn(){
-      this.service.get().then(resp => {this.users = resp;
-                              console.log(this.users)});
+      this.service.getUser(this.username).then(resp => {this.users = resp;
+                                             if(this.users == null){
+                                                alert('usuario incorrecto')
+                                             }else{
+                                                this.checkPass(this.users);
+                                             }});
       
+   }
+   checkPass(usr: any){
+      if(this.pass != usr.password){
+         alert('contraseña invalida');
+      }else{
+         alert('contraseña valida!');
+      }
    }
 }
