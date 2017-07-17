@@ -2,12 +2,16 @@ var express = require('express'),
    bodyParser = require('body-parser'),
    mongoose = require('mongoose'),
    methodOverride = require('method-override'),
+   cors = require('cors')
    app = express();
 
 //Middlewares
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 app.use(methodOverride());
+
+//habilito CORS
+app.use(cors());
 
 app.get('/',function(req, res){
    res.send('Personas que tienen amigos y mascotas!');
@@ -41,6 +45,7 @@ app.route('/persona/:id')
 var userCtrl = require('./controllers/userController');
 
 app.route('/user')
+   .get(userCtrl.getAll)
    .put(userCtrl.updateUser)
    .delete(userCtrl.deleteUser)
    .post(userCtrl.createUser);

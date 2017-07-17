@@ -67,8 +67,14 @@ exports.getByName = function(req, res){
       if(err){
          console.log('error buscando por nombre de usuario');
          res.status(500).jsonp({message: 'error'});
+      }else{
+         res.status(200).jsonp(user);
       }
-   }).populate('persona').exec(function(err, user){
+   });
+}
+
+exports.getAll = function(req, res){
+   User.find().populate('persona').exec(function(err, user){
       if(err){
          console.log('error en el populate de user');
          res.status(500).jsonp({message: 'error'});
