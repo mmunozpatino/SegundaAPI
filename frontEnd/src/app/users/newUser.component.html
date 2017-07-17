@@ -1,5 +1,5 @@
 <h1>new user</h1>
-<form name='formulario' #usuarioForm='ngForm' (ngSubmit)='onSubmit()'>
+<form name='formulario' #usuarioForm='ngForm' (ngSubmit)='logUp()'>
    <label for="nombre">Nombre</label>
 
    <input type="text" id="nombre" 
@@ -69,6 +69,10 @@
    <div *ngIf='pass2.value != pass.value'>
       Deben coincidir!
    </div>
+   <button type='submit'>Log Up!</button>
 </form>
-<button (click)='logUp()'>Log Up!</button>
+
 <button routerLink='/'>Back!</button>
+<div *ngIf='error'>
+   problema al crear usuario
+</div>

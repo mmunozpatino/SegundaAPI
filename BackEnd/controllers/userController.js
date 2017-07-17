@@ -9,8 +9,7 @@ exports.createUser = function(req, res){
    })
    pers.save(function(err){
       if(err){
-         console.log('error al guardar a la persona');
-         console.log(err);
+         res.status(500, err);
       }
    })
    var user = new User({
@@ -20,7 +19,6 @@ exports.createUser = function(req, res){
    });
    user.save(function(err){
       if(err){
-         console.log('error al guardar usuario');
          res.status(500).jsonp({message: 'error'});
       }else{
          res.status(200).jsonp(user);

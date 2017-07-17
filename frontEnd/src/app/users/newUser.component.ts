@@ -13,6 +13,7 @@ export class NewUserComponent {
    username: String;
    pass: String;
    user: any;
+   error: boolean;
 
    constructor(private service: UserService){
       this.user = {
@@ -25,8 +26,15 @@ export class NewUserComponent {
    }
    
    logUp(){
-      console.log(this.user);
       this.service.addUser(this.user).then(res => {this.user = res;
-                                             console.log(this.user);})
+                                          console.log(this.user)}).catch(this.handleError);
+   }
+   verificarRes(user: any){
+      if(user.message == 'error'){
+         this.error = true;
+      }
+   }
+   handleError(){
+      alert('Verificar los datos ingresados');
    }
 }
