@@ -5,18 +5,23 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
+import { AppRouter } from './app.router';
+
 import {InicioComponent} from './incio/incio.component';
 import { UserService } from './services/user.service';
+import { NewUserComponent } from './users/newUser.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InicioComponent
+    InicioComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    AppRouter
   ],
   providers: [
     UserService

@@ -10,6 +10,7 @@ exports.createUser = function(req, res){
    pers.save(function(err){
       if(err){
          console.log('error al guardar a la persona');
+         console.log(err);
       }
    })
    var user = new User({

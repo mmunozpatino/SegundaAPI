@@ -14,4 +14,7 @@ export class UserService {
    getUser(usr: String): Promise<any[]>{
       return this.http.get(this.url + '/' + usr).toPromise().then(resp => resp.json());
    }
+   addUser(usr: any): Promise<any>{
+      return this.http.post(this.url, usr).toPromise().then(resp => resp.json());
+   }
 }
