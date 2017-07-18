@@ -1,2 +1,11 @@
 <h1>Perfil usuario</h1>
-{{id}}
+<div *ngIf=user>
+   <label>Nombre de usuario: {{username}}</label>
+   <br>
+   <label for="">Nombre: {{user.persona.nombre}}</label>
+   <br>
+   <label for="">Apellido: {{user.persona.apellido}}</label>
+   <br>
+   <label for="">Documento: {{user.persona.dni}}</label>
+</div>
+<button type="">Ver</button>

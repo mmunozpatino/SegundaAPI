@@ -16,5 +16,5 @@ export class UserService {
    }
    addUser(usr: any): Promise<any>{
       return this.http.post(this.url, usr).toPromise().then(resp => resp.json());
-   }
+   }   
 }

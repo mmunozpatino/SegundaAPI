@@ -11,6 +11,7 @@ import {InicioComponent} from './incio/incio.component';
 import { UserService } from './services/user.service';
 import { NewUserComponent } from './users/newUser.component';
 import { PerfilUserComponent } from './users/perfilUser.component';
+import { PersonaService } from './services/persona.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PerfilUserComponent } from './users/perfilUser.component';
     ReactiveFormsModule
   ],
   providers: [
-    UserService
+    UserService,
+    PersonaService
   ],
   bootstrap: [AppComponent]
 })

@@ -24,8 +24,7 @@ export class InicioComponent{
       if(this.pass != usr.password){
          alert('contraseña invalida');
       }else{
-         console.log(usr._id)
-         this.router.navigate(['/perfil', usr._id]);
+         this.router.navigate(['/perfil', usr.username]);
       }
    }
 }
