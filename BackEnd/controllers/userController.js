@@ -62,10 +62,14 @@ exports.updateUser = function(req, res){
 }
 
 exports.getByName = function(req, res){
-   User.findOne({username: req.params.username}, function(err, user){
+   User.findOne({username: req.params.username}).
+   populate({
+      path: ' persona ', 
+      populate: {
+         path: 'amigos mascota'
+      }}).exec(function(err, user){
       if(err){
-         console.log('error buscando por nombre de usuario');
-         res.status(500).jsonp({message: 'error'});
+         console.log('error populate');
       }else{
          res.status(200).jsonp(user);
       }

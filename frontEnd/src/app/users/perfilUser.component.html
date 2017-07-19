@@ -1,20 +1,18 @@
 <h1>Perfil usuario</h1>
-<div *ngIf="user && persona">
+<div *ngIf="user">
    <label>Nombre de usuario: {{user.username}}</label>
    <br>
-   <label for="">Nombre: {{persona.nombre}}</label>
+   <label for="">Nombre: {{user.persona.nombre}}</label>
    <br>
-   <label for="">Apellido: {{persona.apellido}}</label>
+   <label for="">Apellido: {{user.persona.apellido}}</label>
    <br>
-   <label for="">Documento: {{persona.dni}}</label>
-</div>
-<h2>Amigos:</h2>
-<ul *ngIf=persona>
-   <li *ngFor='let amigo of persona.amigos'>
-            {{amigo.nombre}}
-   </li>
-</ul>
-<h2>Mascota:</h2>
-<div *ngIf=persona>
-   {{persona.mascota.nombre}}
+   <label for="">Documento: {{user.persona.dni}}</label>
+   <h2>Amigos:</h2>
+   <ul>
+      <li *ngFor='let amigo of user.persona.amigos'>
+               {{amigo.nombre}}
+      </li>
+   </ul>
+   <h2>Mascota:</h2>
+   {{user.persona.mascota.nombre}}   
 </div>

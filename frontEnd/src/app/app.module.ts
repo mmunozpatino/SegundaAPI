@@ -12,13 +12,15 @@ import { UserService } from './services/user.service';
 import { NewUserComponent } from './users/newUser.component';
 import { PerfilUserComponent } from './users/perfilUser.component';
 import { PersonaService } from './services/persona.service';
+import { PersonasComponent } from './personas/personas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
     NewUserComponent,
-    PerfilUserComponent
+    PerfilUserComponent,
+    PersonasComponent
   ],
   imports: [
     BrowserModule,
