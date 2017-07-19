@@ -13,6 +13,7 @@ import { NewUserComponent } from './users/newUser.component';
 import { PerfilUserComponent } from './users/perfilUser.component';
 import { PersonaService } from './services/persona.service';
 import { PersonasComponent } from './personas/personas.component';
+import { PersonaDetalleComponent } from './personas/personaDetalle.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PersonasComponent } from './personas/personas.component';
     InicioComponent,
     NewUserComponent,
     PerfilUserComponent,
-    PersonasComponent
+    PersonasComponent,
+    PersonaDetalleComponent
   ],
   imports: [
     BrowserModule,
