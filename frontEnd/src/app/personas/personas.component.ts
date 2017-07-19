@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
    selector: 'personas',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonasComponent implements OnInit {
    //hacerlo como cartel sobre el perfil
+   @Input() id: String;
    constructor() { }
-
    ngOnInit() { }
 }

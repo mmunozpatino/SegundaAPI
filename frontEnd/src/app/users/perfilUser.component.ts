@@ -10,7 +10,7 @@ import { UserService } from '../services/user.service';
 export class PerfilUserComponent implements OnInit{
    username: String;
    user: any;
-   persona: any[];
+   addFnd: boolean;
    constructor(
       private service: UserService, 
       private router: Router,
