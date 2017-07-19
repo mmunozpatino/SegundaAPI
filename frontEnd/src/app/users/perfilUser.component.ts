@@ -11,6 +11,7 @@ import { PersonaService } from '../services/persona.service';
 export class PerfilUserComponent implements OnInit{
    username: String;
    user: any;
+   persona: any[];
    constructor(
       private service: UserService, 
       private router: Router,
@@ -25,6 +26,13 @@ export class PerfilUserComponent implements OnInit{
    }
    cargarUser(){
       this.service.getUser(this.username).then(res => {this.user = res;
-      console.log(this.user)});
+      this.getPersona()});
+   }
+   getPersona(){
+      this.servicePers.getPersona(this.user.persona).then(res => {
+         this.persona = res;
+         console.log(this.persona);
+      })
+      //this.servicePers.
    }
 }
