@@ -60,7 +60,7 @@ exports.getAll = function(req, res){
 }
 
 exports.getById = function(req, res){
-   Persona.findById(req.params.id).populate('mascota amigos').exec(function(err, persona){
+   Persona.findById(req.params.id).populate('mascota').exec(function(err, persona){
       if(err){
          console.log('error al traer persona', err);
          res.status(500).jsonp({message: 'error'});

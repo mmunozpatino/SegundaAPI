@@ -10,7 +10,7 @@ export class PersonaService {
    getPersona(id: String): Promise<any>{
       return this.http.get(this.url + '/' + id).toPromise().then(res => res.json());
    }
-   getAll(){
-      
+   getAll(): Promise<any[]>{
+      return this.http.get(this.url).toPromise().then(res => res.json());
    }
 }

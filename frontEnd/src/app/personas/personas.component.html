@@ -1,1 +1,6 @@
 <h1>Deberian verse todas las personas del sistema</h1>
+<ul *ngIf='personas'>
+   <li *ngFor='let persona of personas' >
+      {{persona.nombre}}
+   </li>
+</ul>

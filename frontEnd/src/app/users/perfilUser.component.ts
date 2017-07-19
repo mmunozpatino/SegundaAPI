@@ -25,4 +25,7 @@ export class PerfilUserComponent implements OnInit{
    cargarUser(){
       this.service.getUser(this.username).then(res => {this.user = res});
    }
+   addFriend(){
+      this.addFnd = true;
+   }
 }
