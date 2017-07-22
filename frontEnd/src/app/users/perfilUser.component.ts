@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 
 import { UserService } from '../services/user.service';
@@ -11,6 +11,7 @@ export class PerfilUserComponent implements OnInit{
    username: String;
    user: any;
    addFnd: boolean;
+
    constructor(
       private service: UserService, 
       private router: Router,
@@ -20,12 +21,17 @@ export class PerfilUserComponent implements OnInit{
       this.route.params.subscribe(params => {
          this.username = params['username'];
       });
-      this.cargarUser();
+      this.cargarComponent();
    }
-   cargarUser(){
+   cargarComponent(){
       this.service.getUser(this.username).then(res => {this.user = res});
+      this.addFnd= false;
    }
    addFriend(){
       this.addFnd = true;
+      
+   }
+   onAdd(data){
+      console.log('desde hijoa', data)
    }
 }

@@ -13,4 +13,10 @@ export class PersonaService {
    getAll(): Promise<any[]>{
       return this.http.get(this.url).toPromise().then(res => res.json());
    }
+   setAmigo(id: String, idf:String): Promise<any>{
+      return this.http.put(this.url, {'id': id, 'idf': idf}).toPromise().then(res => res.json());
+   }
+   getUser(idp: String): Promise<any>{
+      return this.http.get('http://localhost:3000/userPerson/' + idp).toPromise().then(res => res.json());
+   }
 }

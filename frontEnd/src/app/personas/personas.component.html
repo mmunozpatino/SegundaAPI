@@ -1,6 +1,10 @@
 <h1>Deberian verse todas las personas del sistema</h1>
-<ul *ngIf='personas'>
-   <li *ngFor='let persona of personas' >
-      {{persona.nombre}}
+
+<ul *ngIf='personas' >
+   <li *ngFor='let persona of personas' (click)='showDetail(persona._id)'  >
+      {{persona.nombre}}      
    </li>
 </ul>
+<div *ngIf=personaDetalle>
+   <personaDetalle [id]='id' [idf]='idf'>  </personaDetalle>
+</div>

@@ -52,6 +52,9 @@ app.route('/user')
 
 app.route('/user/:username')
    .get(userCtrl.getByName);
+
+app.route('/userPerson/:idp')
+   .get(userCtrl.getByPersonId);
 //conexion a MongoDB
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/redsocial', { useMongoClient : true }, function(err){

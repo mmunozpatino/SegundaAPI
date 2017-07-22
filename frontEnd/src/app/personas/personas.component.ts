@@ -12,6 +12,9 @@ export class PersonasComponent implements OnInit {
    personas: any[];
    personasID: String[] = [];
    amigos: String[];
+   personaDetalle: boolean;
+   idf: String;
+
    constructor(private service: PersonaService) { }
    ngOnInit() {
       this.cargarPersonas();
@@ -33,6 +36,7 @@ export class PersonasComponent implements OnInit {
          this.filtrarAmigos();
       });      
    }
+
    filtrarAmigos(){
       for(let i of this.personas){
             for(let j of this.amigos){
@@ -42,5 +46,10 @@ export class PersonasComponent implements OnInit {
             }
          }
          console.log('quedo', this.personas);
+   }
+   showDetail(id: String){
+         console.log('detalle')
+         this.idf = id;
+         this.personaDetalle = true;
    }
 }

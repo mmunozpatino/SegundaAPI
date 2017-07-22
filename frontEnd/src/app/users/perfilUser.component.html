@@ -17,6 +17,6 @@
    {{user.persona.mascota.nombre}}
    <button (click)='addFriend()'>Add Friend!</button>
    <div *ngIf=addFnd>
-      <personas [id]='user.persona._id'></personas>
+      <personas [id]='user.persona._id' (onAdd)='onAdd($event)'></personas>
    </div>   
 </div>

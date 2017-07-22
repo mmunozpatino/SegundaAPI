@@ -100,3 +100,14 @@ exports.getById = function(req, res){
       }
    });
 }
+
+exports.getByPersonId = function(req, res){
+   User.findOne({persona: req.params.idp}, function(err, user){
+      if(err){
+         console.log('error buscando');
+         res.status(500).jsonp({message: 'error'});
+      }else{
+         res.status(200).jsonp(user);
+      }
+   })
+}
