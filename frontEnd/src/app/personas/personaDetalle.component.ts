@@ -21,16 +21,9 @@ export class PersonaDetalleComponent implements OnInit {
 
    constructor(private service: PersonaService, private router: Router) { }
 
-  ngOnInit() {
-    this.cargarAmigo();
-  }
-
-  cargarAmigo(){
-    this.service.getPersona(this.idf).then(res => {
-        this.amigo = res;
-        console.log(this.amigo);
-    })
-  }
+   OnInit(){
+     this.onAdd.emit(true);
+   }
   agregarAmigo(add: boolean){
     /*this.service.setAmigo(this.id, this.idf).then(res =>{           this.persona = res;
       this.onAdd.emit(add);
@@ -41,6 +34,18 @@ export class PersonaDetalleComponent implements OnInit {
     this.onAdd.emit(i);
     
   }
+
+  ngOnInit() {
+    this.cargarAmigo();
+  }
+
+  cargarAmigo(){
+    this.service.getPersona(this.idf).then(res => {
+        this.amigo = res;
+        console.log(this.amigo);
+    })
+  }
+  
   buscarUser(){
     this.service.getUser(this.persona._id).then(res => {
       console.log(res)
