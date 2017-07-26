@@ -31,7 +31,7 @@ export class PerfilUserComponent implements OnInit{
       this.addFnd = true;
       
    }
-   onAdd(data){
-      console.log('desde hijoa', data)
+   onAdd(bool: boolean){
+      console.log('llego a padre:', bool);
    }
 }
