@@ -26,8 +26,7 @@ export class PersonaDetalleComponent implements OnInit {
   agregarAmigo(add: boolean){
     this.service.setAmigo(this.id, this.idf).then(res =>{           this.persona = res;
       this.added.emit(add);
-    });
-    
+    });    
   }
 
   ngOnInit() {

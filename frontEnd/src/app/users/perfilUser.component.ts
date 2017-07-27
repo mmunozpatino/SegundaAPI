@@ -11,6 +11,7 @@ export class PerfilUserComponent implements OnInit{
    username: String;
    user: any;
    addFnd: boolean;
+   mascota: boolean;
 
    constructor(
       private service: UserService, 
@@ -24,8 +25,15 @@ export class PerfilUserComponent implements OnInit{
       this.cargarComponent();
    }
    cargarComponent(){
-      this.service.getUser(this.username).then(res => {this.user = res});
+      this.service.getUser(this.username).then(res => {this.user = res;
+      console.log(this.user);
+      if(this.user.mascota != null){
+         this.mascota = true;
+      }else{
+         this.mascota = false;
+      }});
       this.addFnd= false;
+      
    }
    addFriend(){
       this.addFnd = true;

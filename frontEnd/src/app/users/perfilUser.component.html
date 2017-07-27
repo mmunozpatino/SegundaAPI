@@ -2,7 +2,9 @@
 <div *ngIf="user">
    <label>Nombre de usuario: {{user.username}}</label>
    <br>
+   
    <label for="">Nombre: {{user.persona.nombre}}</label>
+   
    <br>
    <label for="">Apellido: {{user.persona.apellido}}</label>
    <br>
@@ -13,8 +15,10 @@
                {{amigo.nombre}}
       </li>
    </ul>
+   <div *ngIf='mascota'>
    <h2>Mascota:</h2>
    {{user.persona.mascota.nombre}}
+   </div>
    <button (click)='addFriend()'>Add Friend!</button>
    <div *ngIf=addFnd>
       <personas [id]='user.persona._id' (emitter)='added($event)'></personas>
