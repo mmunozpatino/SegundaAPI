@@ -1,4 +1,4 @@
-var Mascota = require('../models/mascota');
+var Mascota = require('../models/mascota'); 
 
 exports.add = function(req, res){
    var mascota = new Mascota({
@@ -8,7 +8,7 @@ exports.add = function(req, res){
    })
    mascota.save(function(err){
       if(err){
-         console.log('error guardando nueva mascota');
+         console.log('error guardando nueva mascota', err);
          res.status(500).jsonp({message: 'error'});
       }else{
          res.status(200).jsonp(mascota);

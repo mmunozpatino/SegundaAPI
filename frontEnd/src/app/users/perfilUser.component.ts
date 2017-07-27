@@ -12,6 +12,7 @@ export class PerfilUserComponent implements OnInit{
    user: any;
    addFnd: boolean;
    mascota: boolean;
+   addPet: boolean;
 
    constructor(
       private service: UserService, 
@@ -44,5 +45,8 @@ export class PerfilUserComponent implements OnInit{
       if(b){
          this.cargarComponent();
       }      
+   }
+   newPet(){
+      this.addPet = true;
    }
 }
