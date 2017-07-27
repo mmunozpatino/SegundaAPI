@@ -16,22 +16,17 @@ export class PersonaDetalleComponent implements OnInit {
    perfil: PerfilUserComponent;
 
    
-   @Output() onAdd= new EventEmitter<boolean>();
-   added= false;
+   @Output() added = new EventEmitter<boolean>();
 
    constructor(private service: PersonaService, private router: Router) { }
 
    OnInit(){
-     this.onAdd.emit(true);
+     this.added.emit(true);
    }
   agregarAmigo(add: boolean){
-    /*this.service.setAmigo(this.id, this.idf).then(res =>{           this.persona = res;
-      this.onAdd.emit(add);
-      this.added= true;
-    });*/
-    let i = true;
-    console.log('agregarAmigo', true)
-    this.onAdd.emit(i);
+    this.service.setAmigo(this.id, this.idf).then(res =>{           this.persona = res;
+      this.added.emit(add);
+    });
     
   }
 

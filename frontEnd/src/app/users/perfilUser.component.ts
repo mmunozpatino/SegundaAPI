@@ -31,7 +31,10 @@ export class PerfilUserComponent implements OnInit{
       this.addFnd = true;
       
    }
-   onAdd(bool: boolean){
-      console.log('llego a padre:', bool);
+   added(b: boolean){
+      this.addFnd = false;
+      if(b){
+         this.cargarComponent();
+      }      
    }
 }

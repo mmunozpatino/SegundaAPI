@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { PersonaService } from '../services/persona.service';
 
@@ -8,48 +8,53 @@ import { PersonaService } from '../services/persona.service';
 })
 export class PersonasComponent implements OnInit {
    //hacerlo como cartel sobre el perfil
-   @Input() id;
-   personas: any[];
-   personasID: String[] = [];
-   amigos: String[];
-   personaDetalle: boolean;
-   idf: String;
+      @Input() id;
+      personas: any[];
+      personasID: String[] = [];
+      amigos: String[];
+      personaDetalle: boolean;
+      idf: String;
+      
+      @Output() emitter = new EventEmitter<boolean>();
 
-   constructor(private service: PersonaService) { }
-   ngOnInit() {
-      this.cargarPersonas();
-   }
-   cargarPersonas(){
-      this.service.getAll().then(res => {
-         for(let i of res){
-            this.personasID.push(i._id);
-         };
-         this.personas = res;
-         console.log(this.personasID)
-         this.cargarAmigos();
-      });
-   }
-   cargarAmigos(){
-      this.service.getPersona(this.id).then(res => {
-         this.amigos = res.amigos;
-         console.log(this.amigos);
-         this.filtrarAmigos();
-      });      
-   }
+      constructor(private service: PersonaService) { }
+      ngOnInit() {
+            this.cargarPersonas();
+      }
+      cargarPersonas(){
+            this.service.getAll().then(res => {
+            for(let i of res){
+                  this.personasID.push(i._id);
+            };
+            this.personas = res;
+            console.log(this.personasID)
+            this.cargarAmigos();
+            });
+      }
+      cargarAmigos(){
+            this.service.getPersona(this.id).then(res => {
+            this.amigos = res.amigos;
+            console.log(this.amigos);
+            this.filtrarAmigos();
+            });      
+      }
 
-   filtrarAmigos(){
-      for(let i of this.personas){
-            for(let j of this.amigos){
-               if( i._id == j){
-                  this.personas.splice(this.personas.indexOf(i), 1);
-               }
+      filtrarAmigos(){
+            for(let i of this.personas){
+                  for(let j of this.amigos){
+                  if( i._id == j){
+                        this.personas.splice(this.personas.indexOf(i), 1);
+                  }
+                  }
             }
-         }
-         console.log('quedo', this.personas);
-   }
-   showDetail(id: String){
-         console.log('detalle')
-         this.idf = id;
-         this.personaDetalle = true;
-   }
+            console.log('quedo', this.personas);
+      }
+      showDetail(id: String){
+            console.log('detalle')
+            this.idf = id;
+            this.personaDetalle = true;
+      }
+      onAdd(b: boolean){
+            this.emitter.emit(b);
+      }
 }
