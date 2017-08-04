@@ -67,5 +67,6 @@ mongoose.connect('mongodb://localhost/redsocial', { useMongoClient : true }, fun
 
 //iniciar server
 app.listen(3000, function(){
-   console.log('arranco con éxito el server!');
+   var hola = "hola";
+   console.log('arranco %s con éxito el server!');
 })

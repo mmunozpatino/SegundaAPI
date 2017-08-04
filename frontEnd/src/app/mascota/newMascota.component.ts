@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { MascotaService } from '../services/mascota.service'
 
@@ -9,20 +9,28 @@ import { MascotaService } from '../services/mascota.service'
 export class NewMascotaComponent implements OnInit {
    mascota: any;
    respuesta: any;
-   constructor(private service: MascotaService) {
+   @Output() added= new EventEmitter<boolean>();
+   @Input() dueño: any;
+
+    constructor(private service: MascotaService) {
       this.mascota = {
+         id: '',
          nombre: '',
          raza: '',
          especie: ''
       }
     }
 
-   ngOnInit() { }
+   ngOnInit() { 
+     console.log(this.dueño);
+     this.mascota.id = this.dueño._id;
+   }
 
    add(){
       this.service.addNew(this.mascota).then(res =>{
          this.respuesta = res;
          console.log(this.respuesta);
+         this.added.emit(true);
       })
    }
 }

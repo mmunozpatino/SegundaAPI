@@ -13,6 +13,7 @@ export class PerfilUserComponent implements OnInit{
    addFnd: boolean;
    mascota: boolean;
    addPet: boolean;
+   petadded: boolean;
 
    constructor(
       private service: UserService, 
@@ -28,12 +29,13 @@ export class PerfilUserComponent implements OnInit{
    cargarComponent(){
       this.service.getUser(this.username).then(res => {this.user = res;
       console.log(this.user);
-      if(this.user.mascota != null){
+      if(this.user.persona.mascota != null){
          this.mascota = true;
       }else{
          this.mascota = false;
       }});
       this.addFnd= false;
+      this.addPet = false;
       
    }
    addFriend(){
@@ -48,5 +50,10 @@ export class PerfilUserComponent implements OnInit{
    }
    newPet(){
       this.addPet = true;
+   }
+   addedPet(b: boolean){
+      if(b){
+         this.cargarComponent();
+      }
    }
 }

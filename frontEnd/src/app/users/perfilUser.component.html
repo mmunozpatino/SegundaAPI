@@ -18,7 +18,7 @@
       {{user.persona.mascota.nombre}}
    </div>
    <button [hidden]='mascota' (click)='newPet()'>Add Pet!</button>
-   <new-mascota *ngIf='addPet'></new-mascota>
+   <new-mascota *ngIf='addPet' [dueño]='user.persona' (added)='addedPet($event)'></new-mascota>
    <button (click)='addFriend()'>Add Friend!</button>
    <personas *ngIf=addFnd [id]='user.persona._id' (emitter)='added($event)'></personas> 
 </div>
