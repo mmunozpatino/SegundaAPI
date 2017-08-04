@@ -33,4 +33,8 @@ export class NewMascotaComponent implements OnInit {
          this.added.emit(true);
       })
    }
+    especies(){
+      //console.log(this.service.getEspecies());
+      this.service.getEspecies().subscribe(res => {console.log(res)});
+    }
 }
