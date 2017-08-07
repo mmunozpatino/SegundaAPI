@@ -1,0 +1,15 @@
+div{
+   float: right;
+   position: relative;
+   top: 5px;
+}
+input{
+   vertical-align: top;
+   margin-top: 5px;
+}
+button{
+   background-color: #a206f4;
+   border: none;
+   height: 10px;
+   cursor: pointer;
+}

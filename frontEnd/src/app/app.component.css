@@ -1,0 +1,10 @@
+.cabecera{
+   background-color: #a206f4;
+   color: white;
+   margin: auto;
+   display: block;
+   height: 2.5em;
+}
+h1{
+   float: left;
+}

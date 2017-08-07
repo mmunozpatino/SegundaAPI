@@ -7,8 +7,9 @@ import { AppComponent } from './app.component';
 
 import { AppRouter } from './app.router';
 
-import {InicioComponent} from './incio/incio.component';
+import {LogComponent} from './log/log.component';
 
+import{ InicioComponent } from './inicio/incio.component';
 import { UserService } from './services/user.service';
 import { NewUserComponent } from './users/newUser.component';
 
@@ -28,7 +29,8 @@ import { MascotaService } from './services/mascota.service';
     PerfilUserComponent,
     PersonasComponent,
     PersonaDetalleComponent,
-    NewMascotaComponent
+    NewMascotaComponent,
+    LogComponent
   ],
   imports: [
     BrowserModule,

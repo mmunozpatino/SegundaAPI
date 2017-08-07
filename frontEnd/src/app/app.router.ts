@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
-import { InicioComponent } from './incio/incio.component';
+import { InicioComponent } from './inicio/incio.component';
 import { NewUserComponent } from './users/newUser.component';
 import { PerfilUserComponent } from './users/perfilUser.component';
 

@@ -4,11 +4,12 @@ import {Router} from '@angular/router';
 import {UserService} from '../services/user.service';
 
 @Component({
-   selector: 'inicio',
-   templateUrl: './inicio.component.html'
+   selector: 'log',
+   templateUrl: './log.component.html',
+   styleUrls: ['./log.component.css']
 })
 
-export class InicioComponent{
+export class LogComponent{
    title = 'logIn';
    username: String;
    pass: String;
