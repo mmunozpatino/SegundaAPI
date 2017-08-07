@@ -8,6 +8,8 @@ import { Observable } from "rxjs/Observable";
 @Injectable()
 export class MascotaService {
    url = 'http://localhost:3000/persona';
+   urlEspecies = 'http://localhost:3000/especie';
+
    especies: any;
 
    constructor(private http: Http){}
@@ -15,7 +17,7 @@ export class MascotaService {
    addNew(mascota: any): Promise<any>{
       return this.http.post(this.url + '/' + mascota.id, mascota).toPromise().then(res => res.json());
    }
-   getEspecies(): Observable<any>{
-      return this.http.get('../../../../BackEnd/models/especies.json').map((res:any) => res.json());
+   getEspecies(): Promise<any>{
+      return this.http.get(this.urlEspecies).toPromise().then(res => res.json());
    }
 }

@@ -29,6 +29,8 @@ app.route('/mascota/:id')
    .delete(mascotaCtrl.deletePet)
    .put(mascotaCtrl.editPet);
 
+app.route('/especie')
+   .get(mascotaCtrl.getEspecies);
 var personaCtrl = require ('./controllers/personaController.js');
 
 app.route('/persona')

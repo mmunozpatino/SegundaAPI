@@ -11,7 +11,9 @@ exports.add = function(req, res){
          console.log('error guardando nueva mascota', err);
          res.status(500).jsonp({message: 'error'});
       }else{
+         
          res.status(200).jsonp(mascota);
+         
       }
    })
 }
@@ -70,4 +72,8 @@ exports.deletePet = function(req, res){
          }
       })
    })
+}
+exports.getEspecies = function(req, res){
+   console.log(Mascota.schema.path('especie').enumValues);
+   res.status(200).jsonp(Mascota.schema.path('especie').enumValues);
 }

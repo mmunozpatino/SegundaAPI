@@ -9,7 +9,8 @@
 <br>
 <label for="">Especie: </label>
 <br>
-<input type="text" [(ngModel)]='mascota.especie'>
+<select [(ngModel)]='mascota.especie'>
+   <option value="{{e}}" *ngFor='let e of especies'>{{e}}</option>
+</select>
 <br>
 <button (click)='add()'>add Pet!!!</button>
-<button (click)=especies()>hola</button>

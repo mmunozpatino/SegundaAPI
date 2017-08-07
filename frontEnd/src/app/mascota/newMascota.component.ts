@@ -9,6 +9,7 @@ import { MascotaService } from '../services/mascota.service'
 export class NewMascotaComponent implements OnInit {
    mascota: any;
    respuesta: any;
+   especies: any;
    @Output() added= new EventEmitter<boolean>();
    @Input() dueño: any;
 
@@ -22,8 +23,8 @@ export class NewMascotaComponent implements OnInit {
     }
 
    ngOnInit() { 
-     console.log(this.dueño);
      this.mascota.id = this.dueño._id;
+     this.getEspecies();
    }
 
    add(){
@@ -33,8 +34,10 @@ export class NewMascotaComponent implements OnInit {
          this.added.emit(true);
       })
    }
-    especies(){
+    getEspecies(){
       //console.log(this.service.getEspecies());
-      this.service.getEspecies().subscribe(res => {console.log(res)});
+      this.service.getEspecies().then(res=> {
+        this.especies = res;
+      });
     }
 }
