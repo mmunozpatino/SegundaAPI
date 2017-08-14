@@ -4,3 +4,16 @@
    padding: 0;
    font-family: sans-serif, Verdana;
 }
+button{
+   background-color: #a206f4;
+   border: none;
+   border-radius: 5px;
+   color: white;
+   height: 3em;
+   width: 7em; 
+   cursor: pointer;
+   
+}
+button:hover{
+   box-shadow: 0px 0px 10px black;
+}
