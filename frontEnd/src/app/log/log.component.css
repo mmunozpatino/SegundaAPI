@@ -5,9 +5,40 @@
    border: 1px solid grey;
    height: content;
    width: 13em;
+   border-radius: 10px;
 }
 input{
    margin-top: 10px;
+}
+h3{
+   background-color: #a206f4;
+   color: white;
+   text-align: center;
+   border-top-left-radius: 10px;
+   border-top-right-radius: 10px;
+   height: 1.5em;
+}
+input{
+   border:none;
+   margin-left: 5px;
+   padding: 5px;
+   outline: none;
+}
+input:focus{
+   border-bottom: 1px solid #a403e9;
+}
+button{
+   width: 5em;
+   height: 2em;
+   margin: 10px;
+   outline: none;
+}
+button.login{
+   float: right;
+}
+button:hover{
+   background-color: #56046a;
+   box-shadow: none;
 }
 /* 
 div{

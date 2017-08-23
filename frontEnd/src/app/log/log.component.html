@@ -1,13 +1,18 @@
 <div class='cuerpo'>
+   <h3>Log in</h3>
    <div *ngIf=!isLog>
       <div *ngIf=!change>
-         <input type="text" [(ngModel)]='username' placeholder="Username" (keydown)='Change($event)'>
+         <input type="text" [(ngModel)]='username' placeholder="{{plchusr}}" (click)='changeplchldusr()'
+         (blur)='changeplchldusr()'>
       </div>
       <br>
       <div>
-         <input type="password" [(ngModel)]='pass' placeholder="Password" (keydown)='logIn($event)' autofocus>
+         <input type="password" [(ngModel)]='pass' placeholder="{{plchpss}}" 
+         (click)='changeplcpss()' (blur)='changeplcpss()' (keydown)='checkkey($event)'>
       </div>  
    </div>
+   <button (click)='new()'>New User!</button>
+   <button class='login' (click)='logIn()'>Log In!</button>
    <div *ngIf=isLog>
       <button (click)='logOut()'><img src="./assets/salir.png" alt="salir"></button>
    </div>

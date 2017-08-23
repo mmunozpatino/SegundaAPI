@@ -10,7 +10,5 @@ export class InicioComponent implements OnInit {
    constructor(private router: Router) { }
 
    ngOnInit() { }
-   new(){
-      this.router.navigate(['/newUser']);
-   }
+   
 }

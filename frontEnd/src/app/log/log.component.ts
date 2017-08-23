@@ -16,13 +16,29 @@ export class LogComponent implements OnInit{
    users: any;
    isLog: boolean;
    change: boolean;
+   plchusr: String;
+   plchpss: String;
    
    constructor(private service: UserService, private router: Router){}
    
-   ngOnInit() { }
-   logIn(event){
-      if(event.keyCode == 13 ){this.service.getUser(this.username).then(resp => {this.users = resp;                                 
-                                                         this.checkPass(this.users);});}
+   ngOnInit() {
+      this.plchusr = 'Username';
+      this.plchpss = 'Password';
+      this.username = '';
+      this.pass = ''; 
+    }
+   checkkey(event){
+      if(event.keyCode == 13 ){
+      this.logIn()}
+   }
+
+   logIn(){
+      if(this.pass == '' || this.username == ''){
+         alert('Complete los datos!');
+      }else{
+         this.service.getUser(this.username).then(resp => {this.users = resp;                                 
+                                                         this.             checkPass(this.users);});
+      }
       
    }
    checkPass(usr: any){
@@ -31,7 +47,7 @@ export class LogComponent implements OnInit{
       }else{
          this.isLog = true;
          this.router.navigate(['/perfil', usr.username]);
-      }
+      }    
    }
    logOut(){
       this.isLog = false;
@@ -40,10 +56,22 @@ export class LogComponent implements OnInit{
       this.username = '';
       this.pass = '';
    }
-   Change(event){
-      if(event.keyCode == 13){
-         this.change = true;
+   changeplchldusr(){
+      if(this.plchusr == ''){
+         this.plchusr = 'Username'
+      }else{
+         this.plchusr = '';
       }
+   }
+   changeplcpss(){
+      if(this.plchpss == ''){
+         this.plchpss = 'Password'
+      }else{
+         this.plchpss = '';
+      }
+   }
+   new(){
+      this.router.navigate(['/newUser']);
    }
 
 }
