@@ -1,0 +1,14 @@
+.cuerpo{
+   border: 1px solid grey;
+   border-radius: 10px;
+   text-align: center;
+   width: 60%;
+   margin: auto;
+   margin-top: 20px;
+}
+h1{
+   background-color: #a206f4 ;
+   color: white;
+   border-top-left-radius: 10px;
+   border-top-right-radius: 10px;
+}

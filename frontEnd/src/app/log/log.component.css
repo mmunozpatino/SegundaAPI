@@ -1,14 +1,12 @@
 .cuerpo{
-   position: absolute;
+   /* position: absolute;
    left: 40%;
-   top: 30%;
+   top: 30%; */
+   margin-left: 20%;
    border: 1px solid grey;
    height: content;
-   width: 13em;
+   width: 60%;
    border-radius: 10px;
-}
-input{
-   margin-top: 10px;
 }
 h3{
    background-color: #a206f4;
@@ -18,28 +16,10 @@ h3{
    border-top-right-radius: 10px;
    height: 1.5em;
 }
-input{
-   border:none;
-   margin-left: 5px;
-   padding: 5px;
-   outline: none;
-}
-input:focus{
-   border-bottom: 1px solid #a403e9;
-}
-button{
-   width: 5em;
-   height: 2em;
-   margin: 10px;
-   outline: none;
-}
 button.login{
    float: right;
 }
-button:hover{
-   background-color: #56046a;
-   box-shadow: none;
-}
+
 /* 
 div{
    float: right;

@@ -5,7 +5,8 @@ import { UserService } from '../services/user.service';
 
 @Component({
    selector: 'new-user',
-   templateUrl: './newUser.component.html'
+   templateUrl: './newUser.component.html',
+   styleUrls: ['./newUser.component.css']
 })
 export class NewUserComponent {
    nombre: String;
