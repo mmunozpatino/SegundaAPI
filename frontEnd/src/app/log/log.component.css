@@ -1,3 +1,15 @@
+.cuerpo{
+   position: absolute;
+   left: 40%;
+   top: 30%;
+   border: 1px solid grey;
+   height: content;
+   width: 13em;
+}
+input{
+   margin-top: 10px;
+}
+/* 
 div{
    float: right;
    position: relative;
@@ -25,4 +37,4 @@ button{
    cursor: pointer;
    outline: none;
    zoom: 80%;
-}
+} */
