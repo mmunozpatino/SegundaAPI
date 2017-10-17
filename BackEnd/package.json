@@ -1,12 +1,14 @@
 {
    "name": "nodejs-apirest2",
    "version": "1.0.0",
-   "scripts": { 
-      "star": "node app.js" },
+   "scripts": {
+      "star": "node app.js"
+   },
    "dependencies": {
       "body-parser": "~1.13.2",
       "express": "~4.13.1",
       "method-override": "^2.1.2",
-      "mongoose": "^4.11.1"
+      "mongoose": "^4.11.1",
+      "cors": "2.8.4"
    }
 }

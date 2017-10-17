@@ -10,7 +10,7 @@ exports.add = function(req, res){
    persona.save(function(err){
       if(err){
          console.log('error al guardar a la persona');
-         res.status(500).jsonp({message: 'error'});
+         res.status(500).jsonp(err);
       }else{
          res.status(200).jsonp(persona);
       }

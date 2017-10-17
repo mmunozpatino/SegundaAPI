@@ -59,7 +59,7 @@ app.route('/userPerson/:idp')
    .get(userCtrl.getByPersonId);
 //conexion a MongoDB
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/redsocial', { useMongoClient : true }, function(err){
+mongoose.connect('mongodb://redsocialAdmin:1582@127.0.0.1:27017/redsocial', { useMongoClient : true }, function(err){
    if(err){
       console.log('problema al conectar a MongoDB');
    }else{
